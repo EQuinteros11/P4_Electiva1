@@ -36,7 +36,11 @@ public class EditarYEliminar extends AppCompatActivity {
             public void onClick(View view) {
                 AdminSQLiteOpenHelper conn =new AdminSQLiteOpenHelper(getApplicationContext(),"Parcial4",null,1);
                 SQLiteDatabase db =conn.getWritableDatabase();
-                db.execSQL("update "+utilidades.TABLA_CLIENTEVEHICULO+" set  where ID_Cliente = "+bundle.getString("ID_CLIENTE"));
+                db.execSQL("update " + "'"+utilidades.TABLA_CLIENTEVEHICULO+"'" +
+                           " set ID_Vehiculo   =  " +"'"+edtIDVEHICULO.getText().toString()+"'"+
+                           " ,  sMatricula  =  " +"'"+MATRICULA.getText().toString()+"'"+
+                           " ,  iKilometros =  " +"'"+KILO.getText().toString()+"'"+
+                           "  where ID_Cliente =  " +"'"+bundle.getString("ID_CLIENTE")+"'" );
                 Intent dl = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(dl);
             }
