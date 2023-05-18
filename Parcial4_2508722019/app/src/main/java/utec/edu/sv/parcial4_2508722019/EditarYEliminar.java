@@ -34,7 +34,11 @@ public class EditarYEliminar extends AppCompatActivity {
       btnupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                AdminSQLiteOpenHelper conn =new AdminSQLiteOpenHelper(getApplicationContext(),"Parcial4",null,1);
+                SQLiteDatabase db =conn.getWritableDatabase();
+                db.execSQL("update "+utilidades.TABLA_CLIENTEVEHICULO+" set  where ID_Cliente = "+bundle.getString("ID_CLIENTE"));
+                Intent dl = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(dl);
             }
         });
         btndelete.setOnClickListener(new View.OnClickListener() {
