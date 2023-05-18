@@ -42,7 +42,7 @@ public class EditarYEliminar extends AppCompatActivity {
             public void onClick(View view) {
                 AdminSQLiteOpenHelper conn =new AdminSQLiteOpenHelper(getApplicationContext(),"Parcial4",null,1);
                 SQLiteDatabase db =conn.getWritableDatabase();
-                db.execSQL("delete from "+utilidades.TABLA_CLIENTEVEHICULO+" where = "+bundle.getInt("ID_CLIENTE"));
+                db.execSQL("delete from "+utilidades.TABLA_CLIENTEVEHICULO+" where ID_Cliente = "+bundle.getString("ID_CLIENTE"));
                  Intent dl = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(dl);
             }
