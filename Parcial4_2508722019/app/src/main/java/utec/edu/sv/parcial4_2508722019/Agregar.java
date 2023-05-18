@@ -3,6 +3,7 @@ package utec.edu.sv.parcial4_2508722019;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -45,6 +46,8 @@ public class Agregar extends AppCompatActivity {
 
                     db.insert(utilidades.TABLA_CLIENTEVEHICULO,null,detalle);
                     Toast.makeText(Agregar.this, "Se agrego registro", Toast.LENGTH_SHORT).show();
+                    Intent k = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(k);
                 }
                 catch (Exception e){
                     Toast.makeText(Agregar.this, e.getMessage(), Toast.LENGTH_SHORT).show();
